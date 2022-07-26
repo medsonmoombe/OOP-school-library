@@ -1,5 +1,3 @@
-# rubocop: disable Style/OptionalBooleanParameter
-
 require_relative './nameable'
 require_relative './decorator'
 
@@ -29,10 +27,5 @@ class Person < Nameable
 
   private :of_age?
 end
-person = Person.new(22, 'maximilianus')
-  puts person.correct_name
-  capitalizedPerson = CapitalizeDecorator.new(person)
-  puts capitalizedPerson.correct_name
-  capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
-  puts capitalizedTrimmedPerson.correct_name
+
 # rubocop: enable Style/OptionalBooleanParameter
