@@ -13,4 +13,3 @@ class Teacher < Person
     true
   end
 end
-
