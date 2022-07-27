@@ -1,8 +1,11 @@
 require_relative './person'
 
 class Student < Person
-  def initialize(classroom, age, name: 'Unknown', parent_permission: true)
-    super(age, name: name, parent_permission: parent_permission)
+  attr_reader :classroom
+
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super(age, name, parent_permission)
+    @id = Random.rand(1...1000)
     @classroom = classroom
   end
 
@@ -12,6 +15,6 @@ class Student < Person
 
   def classroom=(classroom)
     @classroom = classroom
-    classroom.students.push(self) unless classroom.students.include?(self)
+    classroom.students << self unless classroom.students.include?(self)
   end
 end
