@@ -32,4 +32,5 @@ class Person < Nameable
     @name
   end
 end
+
 # rubocop:enable Style/OptionalBooleanParameter
