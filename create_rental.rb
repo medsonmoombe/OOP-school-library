@@ -1,4 +1,4 @@
-require_relative './app'
+require_relative './select_options'
 
 class CreateRental
   def initialize(people, books)
