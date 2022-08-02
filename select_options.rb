@@ -4,7 +4,6 @@ require_relative 'create_student'
 require_relative 'create_teacher'
 require_relative 'create_rental'
 
-# rubocop:disable Metrics/CyclomaticComplexity
 
 class Options
   attr_accessor :title, :author
@@ -105,4 +104,3 @@ class Options
   end
 end
 
-# rubocop:enable Metrics/ClassLength, Metrics/CyclomaticComplexity

@@ -1,5 +1,4 @@
-# rubocop:disable Style/OptionalBooleanParameter
-
+# rubocop: disable Style/OptionalBooleanParameter
 require_relative './nameable'
 require_relative './rental'
 
