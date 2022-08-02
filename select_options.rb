@@ -89,7 +89,7 @@ class Options
 
   def list_all_rentals
     puts
-    all_people
+    list_all_people
     puts 'Choose person ID: '
     entry = gets.chomp.to_i
 
