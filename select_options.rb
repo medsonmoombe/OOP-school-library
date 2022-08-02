@@ -7,7 +7,9 @@ require './teacher'
 
 # rubocop:disable Metrics/ClassLength, Metrics/CyclomaticComplexity
 
-class App
+class Options
+  attr_accessor :title, :author
+
   def initialize
     @people = []
     @books = []
@@ -42,26 +44,20 @@ class App
     puts '      Good Bye!      '
   end
 
-  def choice_options(option)
-    case option
-    when 1
-      all_books
-    when 2
-      all_people
-    when 3
-      create_person
-    when 4
-      create_book
-    when 5
-      create_rental
-    when 6
-      list_rentals
-    when 7
-      nil
-    else
-      puts 'Invalid option! '
-      puts 'Please enter a valid option from the following: '
-      menu_options
+  def choose_option(operation)
+    case operation
+    when '1'
+      list_all_books
+    when '2'
+      list_all_people
+    when '3'
+      @create_person.create_person
+    when '4'
+      @create_book.create_book
+    when '5'
+      @create_rental.create_rental
+    when '6'
+      list_all_rentals
     end
   end
 
@@ -200,28 +196,3 @@ class App
 end
 
 # rubocop:enable Metrics/ClassLength, Metrics/CyclomaticComplexity
-
-
-
-# refactored app
-
-require_relative 'select_options'
-
-class App
-  def initialize
-    # it create an instance of option
-    @options = Options.new
-  end
-
-  def run
-    puts 'WELCOME TO THE LIBRARY APP! '
-    loop do
-      @options.menu_options
-      operation = gets.chomp
-      exit if operation == '7'
-
-      @options.choice_options operation
-    end
-    puts 'thank you for using the app'
-  end
-end
