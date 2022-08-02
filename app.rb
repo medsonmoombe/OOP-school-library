@@ -12,6 +12,9 @@ class App
     @people = []
     @books = []
     @all_rentals = []
+    @create_person = CreatePerson.new(@people)
+    @create_book = CreateBook.new(@books)
+    @create_rental = CreateRental.new(@people, @books)
   end
 
   def menu_options
@@ -62,21 +65,21 @@ class App
     end
   end
 
-  def create_person
-    entry = nil
-    print 'Choose option 1 to create a Student or option 2 for a Teacher: '
-    until [1, 2].include?(entry)
-      entry = gets.chomp.strip.to_i
-      puts
-      puts 'Choose option 1 for Student or option 2 for Teacher' unless [1, 2].include?(entry)
-    end
-    case entry
-    when 1
-      create_student
-    when 2
-      create_teacher
-    end
-  end
+  # def create_person
+  #   entry = nil
+  #   print 'Choose option 1 to create a Student or option 2 for a Teacher: '
+  #   until [1, 2].include?(entry)
+  #     entry = gets.chomp.strip.to_i
+  #     puts
+  #     puts 'Choose option 1 for Student or option 2 for Teacher' unless [1, 2].include?(entry)
+  #   end
+  #   case entry
+  #   when 1
+  #     create_student
+  #   when 2
+  #     create_teacher
+  #   end
+  # end
 
   def all_people
     key = 1
@@ -105,78 +108,78 @@ class App
     end
   end
 
-  def create_teacher
-    age = -1
-    print 'Enter Age: '
-    while age <= 0
-      age = gets.chomp.to_i
-      print 'Enter valid age for Teacher: ' if age <= 0
-    end
+  # def create_teacher
+  #   age = -1
+  #   print 'Enter Age: '
+  #   while age <= 0
+  #     age = gets.chomp.to_i
+  #     print 'Enter valid age for Teacher: ' if age <= 0
+  #   end
 
-    print 'Enter Name: '
-    name = gets.chomp.strip.capitalize
+  #   print 'Enter Name: '
+  #   name = gets.chomp.strip.capitalize
 
-    print 'Enter Specialization: '
-    specialization = gets.chomp.strip.capitalize
+  #   print 'Enter Specialization: '
+  #   specialization = gets.chomp.strip.capitalize
 
-    @people << Teacher.new(age, name, specialization)
-    puts ' Teacher was created successfuly! '
-  end
+  #   @people << Teacher.new(age, name, specialization)
+  #   puts ' Teacher was created successfuly! '
+  # end
 
-  def create_student
-    print 'Enter Age: '
-    print 'Age: '
-    age = gets.chomp
+  # def create_student
+  #   print 'Enter Age: '
+  #   print 'Age: '
+  #   age = gets.chomp
 
-    print 'Enter Name: '
-    name = gets.chomp.strip.capitalize
+  #   print 'Enter Name: '
+  #   name = gets.chomp.strip.capitalize
 
-    print 'Does student have parent permission? (Y/N): '
-    permission = gets.chomp.strip.upcase
+  #   print 'Does student have parent permission? (Y/N): '
+  #   permission = gets.chomp.strip.upcase
 
-    case permission
-    when 'Y', 'YES'
-      permission = true
-    when 'N', 'NO'
-      permission = false
-    end
-    @people << Student.new(age, name, parent_permission: permission)
-    puts
-    puts 'Student was created successfuly!'
-    puts
-  end
+  #   case permission
+  #   when 'Y', 'YES'
+  #     permission = true
+  #   when 'N', 'NO'
+  #     permission = false
+  #   end
+  #   @people << Student.new(age, name, parent_permission: permission)
+  #   puts
+  #   puts 'Student was created successfuly!'
+  #   puts
+  # end
 
-  def create_book
-    print 'Enter Title: '
-    title = gets.chomp.strip.capitalize
+  # def create_book
+  #   print 'Enter Title: '
+  #   title = gets.chomp.strip.capitalize
 
-    print 'Enter Author: '
-    author = gets.chomp.strip.capitalize
+  #   print 'Enter Author: '
+  #   author = gets.chomp.strip.capitalize
 
-    @books << Book.new(title, author)
-    puts
-    puts 'Book was created successfully!'
-    puts
-  end
+  #   @books << Book.new(title, author)
+  #   puts
+  #   puts 'Book was created successfully!'
+  #   puts
+  # end
 
-  def create_rental
-    all_books
-    print 'Select the key of the book: '
-    book_select = gets.chomp.chomp.to_i
-    all_people
-    print 'Select the key of the person: '
-    person_select = gets.chomp.chomp.to_i
+  # def create_rental
+  #   all_books
+  #   print 'Select the key of the book: '
+  #   book_select = gets.chomp.chomp.to_i
+  #   all_people
+  #   print 'Select the key of the person: '
+  #   person_select = gets.chomp.chomp.to_i
 
-    print 'Select the date: (Year/Month/Day): '
-    date = gets.chomp.strip
-    book = @books[book_select]
-    person = @people[person_select]
-    new_rental = Rental.new(date, book, person)
-    @all_rentals.push(new_rental)
-    puts
-    puts 'Rental was created successfuly!'
-    puts
-  end
+  #   print 'Select the date: (Year/Month/Day): '
+  #   date = gets.chomp.strip
+  #   book = @books[book_select]
+  #   person = @people[person_select]
+  #   new_rental = Rental.new(date, book, person)
+  #   @all_rentals.push(new_rental)
+  #   puts
+  #   puts 'Rental was created successfuly!'
+  #   puts
+  # end
 
   def list_rentals
     puts
