@@ -1,15 +1,20 @@
+# rubocop: disable Metrics/CyclomaticComplexity
+
 require_relative 'create_book'
 require_relative 'create_person'
 require_relative 'create_student'
 require_relative 'create_teacher'
 require_relative 'create_rental'
+require './db_books'
 
 class Options
-  attr_accessor :title, :author
+  # attr_accessor :title, :author
+
+  include BooksController
 
   def initialize
     @people = []
-    @books = []
+    @books = load_books
     @all_rentals = []
     @create_person = CreatePerson.new(@people)
     @create_book = CreateBook.new(@books)
@@ -102,3 +107,4 @@ class Options
     end
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity

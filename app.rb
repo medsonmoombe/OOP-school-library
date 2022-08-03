@@ -7,7 +7,7 @@ class App
   end
 
   def run
-    puts 'WELCOME TO THE LIBRARY APP! '
+    puts 'WELCOME TO THE LIBRARY APP!'
     loop do
       @options.menu_options
       operation = gets.chomp
