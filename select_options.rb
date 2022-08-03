@@ -6,16 +6,20 @@ require_relative 'create_student'
 require_relative 'create_teacher'
 require_relative 'create_rental'
 require './db_books'
+require './db_people'
+require './db_rentals'
 
 class Options
   # attr_accessor :title, :author
 
   include BooksController
+  include RentalsController
+  include PeopleController
 
   def initialize
-    @people = []
+    @people = load_people
     @books = load_books
-    @all_rentals = []
+    @all_rentals = load_rentals
     @create_person = CreatePerson.new(@people)
     @create_book = CreateBook.new(@books)
     @create_rental = CreateRental.new(@people, @books)

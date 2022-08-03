@@ -1,4 +1,5 @@
 require_relative './book'
+require './db_books'
 
 class CreateBook
   def initialize(books)
@@ -12,7 +13,7 @@ class CreateBook
     print 'Enter Author: '
     author = gets.chomp.strip.capitalize
 
-    @books << Book.new(title, author)
+    @books << Book.new(nil, title, author)
     puts
     puts 'Book was created successfully!'
     puts

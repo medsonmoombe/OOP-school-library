@@ -14,6 +14,9 @@ class App
       exit if operation == '7'
 
       @options.choose_option operation
+      @options.save_books_to_file
+      @options.save_people_to_file
+      @options.save_rental_data
     end
     puts 'thank you for using the app'
   end
