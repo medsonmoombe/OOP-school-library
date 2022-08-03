@@ -1,36 +1,28 @@
 require 'json'
-require './rental'
 
-module RentalsController
+module RentalsPersistence
+  def store_rentals(rentals)
+    data = []
+    file = './rentals.json'
+    !(File.exist?(file) && File.read(file) != '') && File.write(file, '[]')
+    return unless File.exist?(file)
+
+    rentals.each do |rental|
+      data << { date: rental.date, book: rental.book, person: rental.person }
+    end
+    File.write(file, JSON.generate(data))
+  end
+
   def load_rentals
-    rental_store = []
-    rent_file = open('./rentals.json')
-    if File.exist?(rent_file) && File.read(rent_file) != ''
-      data = rent_file.read
-      JSON.parse(data).each do |rental|
-        rental_store << Rental.new(rental['date'], person(rental['person_id']), book(rental['book_id']))
-      end
-    else
-      File.write(rent_file, '[]')
+    data = []
+    file = './rentals.json'
+    !(File.exist?(file) && File.read(file) != '') && File.write(file, '[]')
+    return data unless File.exist?(file) && File.read(file) != ''
+
+    JSON.parse(File.read(file)).each do |rental|
+      data << Rental.new(rental['date'], rental['book'], rental['person'])
     end
-    rental_store
-  end
 
-  def save_rental_data
-    rental_store = []
-    @all_rentals.each do |rental|
-      rental_store << { date: rental.date, person_id: rental.person.id, book_id: rental.book.id }
-    end
-    File.write('./rentals.json', rental_store.to_json)
-  end
-
-  private
-
-  def person(id)
-    @people.each { |per| return per if per.id == id }
-  end
-
-  def book(id)
-    @books.each { |bk| return bk if bk.id == id }
+    data
   end
 end

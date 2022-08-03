@@ -1,22 +1,16 @@
-# rubocop: disable Style/OptionalBooleanParameter
-require_relative './nameable'
-require_relative './rental'
+require_relative 'nameable'
 
 class Person < Nameable
+  attr_accessor :name, :age, :rentals, :parent_permission
   attr_reader :id
-  attr_accessor :name, :age, :parent_permission, :rentals
 
-  def initialize(age, name = 'Unknown', parent_permission = true)
+  def initialize(id, age, name = 'unknown', parent_permission: true)
     super()
-    @id = Random.rand(1...1000)
-    @age = age
+    @id = id
     @name = name
+    @age = age
     @parent_permission = parent_permission
     @rentals = []
-  end
-
-  def add_rental(date, book)
-    Rental.new(date, book, self)
   end
 
   def of_age?
@@ -25,13 +19,16 @@ class Person < Nameable
 
   private :of_age?
 
-  def can_use_service?
-    of_age? || @parent_permission
+  def can_use_servies?
+    @age >= 18 || @parent_permission
   end
 
   def correct_name
     @name
   end
-end
 
-# rubocop:enable Style/OptionalBooleanParameter
+  def add_rental(book, date)
+    rental = Rental.new(date, book, self)
+    @rentals << rental
+  end
+end
