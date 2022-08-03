@@ -7,8 +7,6 @@ require_relative 'db_books'
 require_relative 'db_people'
 require_relative 'db_rentals'
 
-# rubocop: disable Metrics/CyclomaticComplexity
-
 class App
   def initialize
     @people = load_people
@@ -163,5 +161,3 @@ class App
     end
   end
 end
-
-# rubocop: enable Metrics/CyclomaticComplexity

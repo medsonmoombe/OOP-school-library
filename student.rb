@@ -1,4 +1,3 @@
-# rubocop: disable Style/OptionalBooleanParameter
 require_relative 'person'
 require_relative 'classroom'
 
@@ -19,5 +18,3 @@ class Student < Person
     classroom.students << self unless classroom.students.include?(self)
   end
 end
-
-# rubocop: enable Style/OptionalBooleanParameter
