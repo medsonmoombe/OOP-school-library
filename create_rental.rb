@@ -1,9 +1,10 @@
-require_relative './select_options'
+require './select_options'
 
 class CreateRental
-  def initialize(people, books)
+  def initialize(people, books, rentals)
     @people = people
     @books = books
+    @all_rentals = rentals
   end
 
   def create_rental
@@ -21,7 +22,7 @@ class CreateRental
     selected_person = @people[gets.chomp.to_i - 1]
     print 'Date: '
     date = gets.chomp
-    selected_person.add_rental(date, selected_book)
+    @all_rentals << selected_person.add_rental(date, selected_book)
     print('Rental created', "Date: #{date}, Rental to: #{selected_person.name}, Book: #{selected_book.title}")
   end
 end

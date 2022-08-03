@@ -22,7 +22,7 @@ class Options
     @all_rentals = load_rentals
     @create_person = CreatePerson.new(@people)
     @create_book = CreateBook.new(@books)
-    @create_rental = CreateRental.new(@people, @books)
+    @create_rental = CreateRental.new(@people, @books, @all_rentals)
   end
 
   def menu_options
