@@ -44,13 +44,24 @@ $ git clone https://github.com/medsonmoombe/OOP-school-library.git
 ### Usage
 
 Kindly modify the files as needed.
+
 ## Authors
+  ### Author 1
 
 👤 **Emmanuel Moombe**
 
 - GitHub: https://github.com/medsonmoombe
 - Twitter: https://twitter.com/@emmanue78388405
 - LinkedIn: https://www.linkedin.com/in/emmanuel-moombe-821918230/
+
+   ### Author 2
+
+👤 **Toussaint Saraza**
+
+- GitHub: [@sarazaToussaint](https://github.com/sarazaToussaint)
+- Twitter: [@Toussaint Saraz1](https://twitter.com/ToussaintSaraz1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/toussaintsaraza/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
