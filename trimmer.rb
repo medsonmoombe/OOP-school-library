@@ -2,6 +2,6 @@ require_relative './decorator'
 
 class TrimmerDecorator < Decorator
   def correct_name
-    @decoration.correct_name.upcase[0...10]
+    @nameable.correct_name[0..9]
   end
 end
