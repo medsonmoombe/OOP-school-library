@@ -1,0 +1,13 @@
+current directory: /home/saraza/Desktop/Microverse/OOP-school-library/.bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+/home/saraza/.rbenv/versions/3.1.2/bin/ruby -I /home/saraza/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220805-7656-4xrcsr.rb extconf.rb
+creating Makefile
+
+current directory: /home/saraza/Desktop/Microverse/OOP-school-library/.bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= clean
+
+current directory: /home/saraza/Desktop/Microverse/OOP-school-library/.bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\=
+make: Nothing to be done for 'all'.
+
+current directory: /home/saraza/Desktop/Microverse/OOP-school-library/.bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= install
