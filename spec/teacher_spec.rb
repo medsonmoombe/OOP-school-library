@@ -2,7 +2,7 @@ require './teacher'
 
 describe Teacher do
   before :each do
-    @teacher = Teacher.new( 102, 44, 'math', 'TEST')
+    @teacher = Teacher.new(102, 44, 'math', 'TEST')
   end
 
   it 'instance of teacher' do

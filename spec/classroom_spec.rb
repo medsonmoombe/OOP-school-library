@@ -1,6 +1,6 @@
 require './classroom'
 
-describe Classroom do 
+describe Classroom do
   before :each do
     @classroom = Classroom.new('grade12B')
   end
@@ -9,4 +9,3 @@ describe Classroom do
     expect(@classroom.label).to eq 'grade12B'
   end
 end
-
